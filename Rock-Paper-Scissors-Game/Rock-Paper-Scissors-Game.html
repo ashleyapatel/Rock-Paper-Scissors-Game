@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock, Paper, Scissors</title>
+        <meta charset="UTF-8">
+    </head>
+    <body style="text-align:center">
+        <h1 id="msg">Waiting...</h1>
+        <img src="User.png" style="width:200px">
+
+        <script>
+
+            do
+            { 
+                user = prompt("Please enter 1 for Rock, 2 for Paper, or 3 for Scissors");
+            }while(isNaN(user) || user > 3 || user < 1)
+
+            if (user == 1) 
+            {
+                    user = "Rock";
+                    document.getElementsByTagName("img")[0].src="Rock.png";
+                    document.getElementById("msg").innerHTML = "You have selected: " + user;
+
+             }
+            if(user == 2)
+            {
+                user = "Paper";
+                document.getElementsByTagName("img")[0].src="Paper.png";
+                document.getElementById("msg").innerHTML = "You have selected: " + user;
+            }
+            if(user == 3){
+                user = "Scissors";
+                document.getElementsByTagName("img")[0].src="Scissors.png";
+                document.getElementById("msg").innerHTML = "You have selected: " + user;
+            }
+
+        </script>
+
+        <h1 id="msg1">Waiting...</h1>
+        <img src="Computer.png" style="width:200px">
+
+        <script>
+            var cpu = Math.floor(Math.random() * 3 + 4);
+
+            if (cpu == 4) 
+            {
+                cpu = "Rock";
+                document.getElementsByTagName("img")[1].src="Rock.png";
+                document.getElementById("msg1").innerHTML = "The CPU has selected: " + cpu;
+
+            }
+            if(cpu == 5)
+            {
+                cpu = "Paper";
+                document.getElementsByTagName("img")[1].src="Paper.png";
+                document.getElementById("msg1").innerHTML = "The CPU has selected: " + cpu;
+            }
+            if(cpu == 6){
+                cpu = "Scissors";
+                document.getElementsByTagName("img")[1].src="Scissors.png";
+                document.getElementById("msg1").innerHTML = "The CPU has selected: " + cpu;
+            }
+        </script>
+
+        <h1 id="msg2">Waiting...</h1>
+
+        <script>
+            if (user == cpu)
+            {
+                document.getElementById("msg2").innerHTML = "IT'S A DRAW"; 
+
+            }
+            else if((user == "Rock" && cpu == "Paper") || (user == "Paper" && cpu == "Scissors") || (user == "Scissors" && cpu == "Rock"))
+            {
+                document.getElementById("msg2").innerHTML = "YOU LOSE!!!"; 
+
+            }
+            else
+            {
+                document.getElementById("msg2").innerHTML = "YOU WIN!!!"; 
+            }
+
+        </script>
+
+        <button type="submit" onClick="refreshPage()">Play Again</button>
+
+        <script>
+            function refreshPage(){
+                window.location.reload();
+            } 		 
+        </script>
+    </body>
+</html>
